@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-tls-server
+  namespace: default
+  labels:
+    app: grpc-tls-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-tls-server
+  template:
+    metadata:
+      labels:
+        app: grpc-tls-server
+    spec:
+      containers:
+      - name: grpc-tls-server
+        image: docker.io/pszeto/grpc-tls-server
+        imagePullPolicy: Always
+        env:
+        - name: PORT
+          value: "9000"
+        - name: LISTEN_ADDRESS
+          value: "0.0.0.0"
+        - name: TLS
+          value: "true"
+        ports:
+        - containerPort: 9000

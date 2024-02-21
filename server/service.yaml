@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: grpc-tls-server
+  namespace: default
+spec:
+  selector:
+    app: grpc-tls-server
+  ports:
+  - protocol: TCP
+    port: 9000
+    targetPort: 9000
