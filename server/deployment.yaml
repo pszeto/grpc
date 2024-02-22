@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: grpc-tls-server
-        image: docker.io/pszeto/grpc-tls-server
+        image: docker.io/pszeto/grpc-tls-server@sha256:f943a55daea93f4604fc352dd673f998e0a9b645067051319d42c88e23e91630
         imagePullPolicy: Always
         env:
         - name: PORT

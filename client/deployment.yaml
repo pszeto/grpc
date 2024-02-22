@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-tls-client
+  namespace: default
+  labels:
+    app: grpc-tls-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-tls-client
+  template:
+    metadata:
+      labels:
+        app: grpc-tls-client
+    spec:
+      containers:
+      - name: grpc-tls-client
+        image: docker.io/pszeto/grpc-tls-client@sha256:6f505915fb611c91006dadb9817cb3308f6d04ae9b6c42d799d0f9f981a146e8
+        imagePullPolicy: Always
+        command:
+          - "/bin/sleep"
+          - "infinity"
